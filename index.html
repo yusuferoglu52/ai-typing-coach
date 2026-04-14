@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speed Typing Game + AI Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Speed Typing Game + AI Coach</h1>
+      <p>Sharpen speed and accuracy with instant feedback.</p>
+    </header>
+
+    <section class="card typing-panel">
+      <h2 class="section-title">Typing Text</h2>
+      <div class="difficulty-controls">
+        <label for="difficulty-select">Difficulty</label>
+        <select id="difficulty-select" class="difficulty-select">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+          <option value="extreme">Extreme</option>
+        </select>
+        <button id="symbols-toggle-btn" class="symbols-toggle-btn" type="button">Symbols: Off</button>
+      </div>
+      <div class="mode-controls">
+        <label for="mode-select">Mode</label>
+        <select id="mode-select" class="difficulty-select">
+          <option value="practice" selected>Practice mode</option>
+          <option value="time">Time Mode</option>
+          <option value="survival">Survival Mode</option>
+          <option value="streak">Streak Mode</option>
+          <option value="memory">Memory Mode</option>
+        </select>
+      </div>
+      <section id="mode-panel" class="mode-panel">
+        <div id="time-controls" class="mode-extra hidden">
+          <label for="time-duration-select">Duration</label>
+          <select id="time-duration-select" class="difficulty-select">
+            <option value="15">15s</option>
+            <option value="30">30s</option>
+            <option value="60" selected>60s</option>
+          </select>
+          <span id="time-remaining">Remaining: 60s</span>
+        </div>
+        <div id="survival-controls" class="mode-extra hidden">
+          <span id="lives-value">Lives: 3</span>
+          <span id="lives-hearts" class="lives-hearts"></span>
+        </div>
+        <div id="streak-controls" class="mode-extra hidden">
+          <span id="current-streak-value">Current Streak: 0</span>
+          <span id="best-streak-value">Best Streak: 0</span>
+          <span id="streak-points-value">Points: 0</span>
+          <span id="streak-multiplier-value">x1.00</span>
+        </div>
+        <div id="memory-controls" class="mode-extra hidden">
+          <span id="preview-countdown-value">Preview: 0s</span>
+        </div>
+      </section>
+      <p id="text-display" class="text-display">
+        Your random paragraph will appear here in Step 2.
+      </p>
+      <label class="visually-hidden" for="typing-input">Typing Input</label>
+      <textarea
+        id="typing-input"
+        class="typing-input"
+        placeholder="Start typing here..."
+        rows="5"
+      ></textarea>
+    </section>
+
+    <section class="stats-grid">
+      <article class="card stat-card">
+        <h3>WPM</h3>
+        <p id="wpm-value">0</p>
+      </article>
+      <article class="card stat-card">
+        <h3>Score</h3>
+        <p id="score-value">0%</p>
+      </article>
+      <article class="card stat-card">
+        <h3>Mistakes</h3>
+        <p id="mistakes-value">0</p>
+      </article>
+      <article class="card stat-card">
+        <h3>Timer</h3>
+        <p id="timer-value">0s</p>
+      </article>
+      <article class="card stat-card">
+        <h3>Progress</h3>
+        <p id="progress-value">0%</p>
+      </article>
+    </section>
+
+    <section class="actions">
+      <button id="restart-btn" class="restart-btn" type="button">Restart</button>
+    </section>
+
+    <section id="result-section" class="card result-section">
+      <h2 class="section-title">Result Summary</h2>
+      <div id="result-content"></div>
+    </section>
+
+    <section id="difficult-section" class="card difficult-section">
+      <h2 class="section-title">Difficult Letters</h2>
+      <div id="difficult-content"></div>
+    </section>
+
+    <section id="coach-section" class="card coach-section">
+      <h2 class="section-title">AI Coach</h2>
+      <div id="coach-content"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
